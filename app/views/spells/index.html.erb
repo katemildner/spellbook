@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Spells</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Level</th>
+      <th>Range</th>
+      <th>School</th>
+      <th>Casting time</th>
+      <th>Duration</th>
+      <th>Description short</th>
+      <th>Description long</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spells.each do |spell| %>
+      <tr>
+        <td><%= spell.name %></td>
+        <td><%= spell.level %></td>
+        <td><%= spell.range %></td>
+        <td><%= spell.school %></td>
+        <td><%= spell.casting_time %></td>
+        <td><%= spell.duration %></td>
+        <td><%= spell.description_short %></td>
+        <td><%= spell.description_long %></td>
+        <td><%= link_to 'Show', spell %></td>
+        <td><%= link_to 'Edit', edit_spell_path(spell) %></td>
+        <td><%= link_to 'Destroy', spell, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spell', new_spell_path %>

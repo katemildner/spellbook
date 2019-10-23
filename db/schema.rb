@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_213745) do
+ActiveRecord::Schema.define(version: 2019_10_23_215104) do
 
   create_table "spell_lists", force: :cascade do |t|
+    t.integer "user_list_id"
+    t.integer "spell_id"
+    t.index ["spell_id"], name: "index_spell_lists_on_spell_id"
+    t.index ["user_list_id"], name: "index_spell_lists_on_user_list_id"
   end
 
   create_table "spells", force: :cascade do |t|

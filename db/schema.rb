@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_23_211317) do
+ActiveRecord::Schema.define(version: 2019_10_23_213745) do
+
+  create_table "spell_lists", force: :cascade do |t|
+  end
 
   create_table "spells", force: :cascade do |t|
     t.string "name"

@@ -26,28 +26,20 @@ class SpellsController < ApplicationController
   def create
     @spell = Spell.new(spell_params)
 
-    respond_to do |format|
-      if @spell.save
-        format.html { redirect_to @spell, notice: 'Spell was successfully created.' }
-        format.json { render :show, status: :created, location: @spell }
-      else
-        format.html { render :new }
-        format.json { render json: @spell.errors, status: :unprocessable_entity }
-      end
+    if @spell.save
+      redirect_to @spell, notice: 'Spell was successfully created.'
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /spells/1
   # PATCH/PUT /spells/1.json
   def update
-    respond_to do |format|
-      if @spell.update(spell_params)
-        format.html { redirect_to @spell, notice: 'Spell was successfully updated.' }
-        format.json { render :show, status: :ok, location: @spell }
-      else
-        format.html { render :edit }
-        format.json { render json: @spell.errors, status: :unprocessable_entity }
-      end
+    if @spell.update(spell_params)
+      redirect_to @spell, notice: 'Spell was successfully updated.'
+    else
+      render :edit
     end
   end
 
@@ -55,10 +47,7 @@ class SpellsController < ApplicationController
   # DELETE /spells/1.json
   def destroy
     @spell.destroy
-    respond_to do |format|
-      format.html { redirect_to spells_url, notice: 'Spell was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to spells_url, notice: 'Spell was successfully destroyed.'
   end
 
   private

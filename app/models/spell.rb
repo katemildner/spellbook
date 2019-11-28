@@ -7,4 +7,6 @@ class Spell < ApplicationRecord
   validates :duration, presence: true
   validates :description_short, presence: true
   validates :description_long, presence: true
+
+  has_and_belongs_to_many :spell_lists
 end

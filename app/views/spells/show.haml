@@ -1,0 +1,28 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @spell.name
+%p
+  %strong Level:
+  = @spell.level
+%p
+  %strong Range:
+  = @spell.range
+%p
+  %strong School:
+  = @spell.school
+%p
+  %strong Casting time:
+  = @spell.casting_time
+%p
+  %strong Duration:
+  = @spell.duration
+%p
+  %strong Description short:
+  = @spell.description_short
+%p
+  %strong Description long:
+  = @spell.description_long
+= link_to 'Edit', edit_spell_path(@spell)
+|
+= link_to 'Back', spells_path

@@ -1,0 +1,17 @@
+%p#notice= notice
+%h1 Spell lists
+%table
+  %thead
+    %tr
+      %th Title
+      %th{colspan: "3"}
+  %tbody
+    - @spell_lists.each do |spell_list|
+      %tr
+        %td= spell_list.title
+        %td= link_to 'Show', spell_list
+        %td= link_to 'Edit', edit_spell_list_path(spell_list)
+        %td= link_to 'Destroy', spell_list, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br/
+= link_to 'New Spell List', new_spell_list_path

@@ -1,0 +1,8 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @spell_list.title
+
+= link_to 'Edit', edit_spell_list_path(@spell_list)
+|
+= link_to 'Back', spell_lists_path

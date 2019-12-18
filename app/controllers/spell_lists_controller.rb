@@ -59,6 +59,6 @@ class SpellListsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def spell_list_params
-      params.require(:spell_list).permit(:spell_id, :title)
+      params.require(:spell_list).permit(:title, spell_ids: [])
     end
 end

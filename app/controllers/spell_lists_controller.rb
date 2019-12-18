@@ -15,16 +15,19 @@ class SpellListsController < ApplicationController
   # GET /spell_lists/new
   def new
     @spell_list = SpellList.new
+    @spells = Spell.all
   end
 
   # GET /spell_lists/1/edit
   def edit
+    @spells = Spell.all
   end
 
   # POST /spell_lists
   # POST /spell_lists.json
   def create
     @spell_list = SpellList.new(spell_list_params)
+    @spells = Spell.all
 
     if @spell_list.save
       redirect_to @spell_list, notice: 'Spell List was successfully created.'
@@ -36,6 +39,7 @@ class SpellListsController < ApplicationController
   # PATCH/PUT /spell_lists/1
   # PATCH/PUT /spell_lists/1.json
   def update
+    @spells = Spell.all
     if @spell_list.update(spell_list_params)
       redirect_to @spell_list, notice: 'Spell List was successfully updated.'
     else

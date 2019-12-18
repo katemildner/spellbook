@@ -1,6 +1,4 @@
 class SpellListsController < ApplicationController
-  before_action :set_spell_list, only: [:show, :edit, :update, :destroy]
-
   # GET /spell_lists
   # GET /spell_lists.json
   def index
@@ -10,6 +8,7 @@ class SpellListsController < ApplicationController
   # GET /spell_lists/1
   # GET /spell_lists/1.json
   def show
+    @spell_list = SpellList.find(params[:id])
   end
 
   # GET /spell_lists/new
@@ -20,6 +19,7 @@ class SpellListsController < ApplicationController
 
   # GET /spell_lists/1/edit
   def edit
+    @spell_list = SpellList.find(params[:id])
     @spells = Spell.all
   end
 
@@ -39,6 +39,7 @@ class SpellListsController < ApplicationController
   # PATCH/PUT /spell_lists/1
   # PATCH/PUT /spell_lists/1.json
   def update
+    @spell_list = SpellList.find(params[:id])
     @spells = Spell.all
     if @spell_list.update(spell_list_params)
       redirect_to @spell_list, notice: 'Spell List was successfully updated.'
@@ -50,16 +51,12 @@ class SpellListsController < ApplicationController
   # DELETE /spell_lists/1
   # DELETE /spell_lists/1.json
   def destroy
+    @spell_list = SpellList.find(params[:id])
     @spell_list.destroy
     redirect_to spell_lists_url, notice: 'Spell List was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_spell_list
-      @spell_list = SpellList.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def spell_list_params
       params.require(:spell_list).permit(:spell_id, :title)

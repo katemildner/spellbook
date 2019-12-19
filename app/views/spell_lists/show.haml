@@ -5,7 +5,7 @@
   %br
   %strong Spells:
   %ul
-    - @spell_list.spells.each do |spell|
+    - @spell_list.spells.order(:level, :name).each do |spell|
       %li
         = link_to "#{spell.name}", spell_path(spell)
         |

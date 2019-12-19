@@ -1,4 +1,4 @@
 = simple_form_for @spell_list do |f|
   = f.input :title
-  = f.association :spells, as: :check_boxes
+  = f.association :spells, as: :check_boxes, collection: Spell.order('level, name')
   = f.button :submit

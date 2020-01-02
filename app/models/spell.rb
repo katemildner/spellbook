@@ -10,7 +10,7 @@ class Spell < ApplicationRecord
 
   has_and_belongs_to_many :spell_lists
 
-  def multiple_labels
+  def to_simple_form_multiple_labels
     "#{name} | #{level} | #{description_short}"
   end
 end

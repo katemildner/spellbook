@@ -1,13 +1,13 @@
 = simple_form_for @spell_list do |f|
   = f.input :title
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 0')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 1')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 2')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 3')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 4')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 5')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 6')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 7')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 8')
-  = f.association :spells, as: :check_boxes, label: false, label_method: :to_simple_form_multiple_labels, collection: Spell.order('level, name').where('level = 9')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 0')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 1')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 2')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 3')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 4')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 5')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 6')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 7')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 8')
+  = f.association :spells, as: :check_boxes, label: false, collection: Spell.order('level, name').where('level = 9')
   = f.button :submit

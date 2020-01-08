@@ -13,7 +13,7 @@
       %th Description long
       %th{colspan: "3"}
   %tbody
-    - @spells.order(:level, :name).each do |spell|
+    - @spells.by_level_and_name.each do |spell|
       %tr
         %td= spell.name
         %td= spell.level

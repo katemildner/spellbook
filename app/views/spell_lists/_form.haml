@@ -1,13 +1,5 @@
 = simple_form_for @spell_list do |f|
   = f.input :title
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_zero
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_one
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_two
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_three
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_four
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_five
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_six
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_seven
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_eight
-  = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level_nine
+  - for level_number in 0..9 do
+    = f.association :spells, as: :check_boxes, label: false, collection: Spell.by_level_and_name.level(level_number)
   = f.button :submit

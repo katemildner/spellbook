@@ -1,0 +1,20 @@
+%p#notice= notice
+%p
+  %strong Title:
+  = @spell_list.title
+  %br
+  %strong Spells:
+  %ul
+    - @spell_list.spells.by_level_and_name.each do |spell|
+      %li
+        = link_to "#{spell.name}", spell_path(spell)
+        |
+        = spell.level
+        |
+        = spell.school
+        |
+        = spell.description_short
+
+= link_to 'Edit', edit_spell_list_path(@spell_list)
+|
+= link_to 'Back', spell_lists_path
